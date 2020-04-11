@@ -1,0 +1,12 @@
+Options +FollowSymLinks -MultiViews
+RewriteEngine On
+
+RewriteCond %{HTTP_HOST} ^www.guventopal.com$ [NC]
+RewriteRule ^((?!_guven).*)$ /_guven/$1 [NC,L]
+
+RewriteCond %{HTTP_HOST} ^guventopal.com$ [NC]
+RewriteRule ^((?!_guven).*)$ /_guven/$1 [NC,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule (.*) index.php/$1 [L]
